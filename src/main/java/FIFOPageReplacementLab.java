@@ -80,6 +80,7 @@ public class FIFOPageReplacementLab {
         return new int[]{pageFaults, pageHits};
     }
 
+    
     /**
      * Display results for a test case (FULLY PROVIDED)
      */
