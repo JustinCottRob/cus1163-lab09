@@ -42,6 +42,8 @@ public class FIFOPageReplacementLab {
         // TODO 1: Implement FIFO algorithm here
         // Queue<Integer> queue = new LinkedList<>();
         // Set<Integer> pagesInMemory = new HashSet<>();
+        Queue<Integer> frames = new LinkedList<>();
+        Set<integer> pagesInMemory = new HashSet<>();
 
         // for (int page : referenceString) {
         //     if (pagesInMemory.contains(page)) {
@@ -54,6 +56,26 @@ public class FIFOPageReplacementLab {
         //         // Add new page
         //     }
         // }
+
+        for(int page : referenceString) {
+            if(pagesInMemory.contains(page){
+                pageHits++;
+                System.out.println("Page " + page + " -> Hit");
+            }
+            else{
+                pageFaults++;
+                if(frames.size() == numFrames) {
+                    int victim = frames.poll();
+                    pagesInMemory.remove(victim);
+                    System.out.println("Page " + page + " -> FAULT (replaced " + victim + ")");
+                }
+                else{
+                    System.out.println("Page " + page + " -> FAULT (loaded)");
+                }
+                frames.offer(page);
+                pagesInMemory.add(page);
+            }
+        }
 
         return new int[]{pageFaults, pageHits};
     }
